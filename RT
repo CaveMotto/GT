@@ -334,23 +334,25 @@ function OnlineControl()
     end
 end
 
-function tilealfg(x,y)
+function tilealfg(x, y)
     OnlineControl()
     AnlikYer()
-    Dunyadami = tostring(world.name)
-    if Dunyadami ~= "" and Dunyadami ~= "EXIT" then
-        tilefgx = world:getTile(x,y).fg
-        return {tilefg = tilefgx}
+    local tile = world:getTile(x, y)
+    if tile then
+        return { tilefg = tile.fg }
+    else
+        return { tilefg = 0 }
     end
 end
 
-function tilealbg(x,y)
+function tilealbg(x, y)
     OnlineControl()
     AnlikYer()
-    Dunyadami = tostring(world.name)
-    if Dunyadami ~= "" and Dunyadami ~= "EXIT" then
-        tilebgx = world:getTile(x,y).bg
-        return {tilebg = tilebgx}
+    local tile = world:getTile(x, y)
+    if tile then
+        return { tilebg = tile.bg }
+    else
+        return { tilebg = 0 }
     end
 end
 
